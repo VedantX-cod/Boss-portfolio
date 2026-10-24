@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vedant Singh | Player One</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TITLE SCREEN -->
+  <main id="title-screen" class="screen">
+    <h1 class="logo">VEDANT<br>SINGH</h1>
+    <p class="tagline">CSE · AI &amp; ML · Boss Fight Edition</p>
+    <button id="start-btn" class="blink" type="button">PRESS START</button>
+    <p class="hint">Press Enter, or tap the button</p>
+  </main>
+
+  <!-- GAME -->
+  <div id="game" class="hidden">
+    <header class="hud">
+      <div class="bar"><span>HP</span><div class="track"><div id="hp" class="fill hp"></div></div></div>
+      <div class="bar"><span>XP</span><div class="track"><div id="xp" class="fill xp"></div></div></div>
+      <div class="score">SCORE <b id="score">000000</b></div>
+    </header>
+
+    <!-- TUTORIAL -->
+    <section id="tutorial" class="level">
+      <h2>TUTORIAL</h2>
+      <div class="dialog">
+        <p>Hi, I'm Vedant. B.Tech CSE student, specializing in AI &amp; ML.</p>
+        <p>Beat each level to unlock the next. Reach the final boss to contact me.</p>
+      </div>
+      <button id="next-btn" type="button">NEXT LEVEL</button>
+    </section>
+
+    <!-- LEVEL 1: SKILLS -->
+    <section id="level1" class="level locked">
+      <h2>LEVEL 1: SKILLS</h2>
+      <div class="dialog">
+        <p>Collect all the power-ups to clear this level.</p>
+        <p id="skill-count">0 / 7 collected</p>
+      </div>
+      <div id="skills" class="skills">
+        <button class="skill" type="button">C</button>
+        <button class="skill" type="button">C++</button>
+        <button class="skill" type="button">PYTHON</button>
+        <button class="skill" type="button">JAVA</button>
+        <button class="skill" type="button">HTML</button>
+        <button class="skill" type="button">MYSQL</button>
+        <button class="skill" type="button">MONGODB</button>
+      </div>
+      <button id="next-btn-2" type="button" disabled>NEXT LEVEL</button>
+    </section>
+
+    <!-- LEVEL 2: PROJECTS -->
+    <section id="level2" class="level locked">
+      <h2>LEVEL 2: PROJECTS</h2>
+      <div class="dialog">
+        <p>Defeat each enemy to reveal the project behind it.</p>
+        <p id="enemy-count">0 / 5 defeated</p>
+      </div>
+
+      <div class="enemies">
+        <article class="enemy" data-hp="3">
+          <h3>GESTURE HOLOGRAM</h3>
+          <div class="track"><div class="fill hp"></div></div>
+          <button class="attack" type="button">ATTACK</button>
+          <div class="loot hidden">
+            <p>Webcam hand tracking (Python + MediaPipe) controlling a glowing 3D object.</p>
+            <a href="https://github.com/VedantX-cod/gesture-hologram" target="_blank" rel="noopener">VIEW CODE</a>
+          </div>
+        </article>
+
+        <article class="enemy" data-hp="3">
+          <h3>SELF-DRIVING CAR</h3>
+          <div class="track"><div class="fill hp"></div></div>
+          <button class="attack" type="button">ATTACK</button>
+          <div class="loot hidden">
+            <p>2D simulator in Pygame where cars learn to drive using a neural network and a genetic algorithm.</p>
+            <a href="https://github.com/VedantX-cod/Self-driving-car-simulator" target="_blank" rel="noopener">VIEW CODE</a>
+          </div>
+        </article>
+
+        <article class="enemy" data-hp="3">
+          <h3>DROWSINESS DETECTOR</h3>
+          <div class="track"><div class="fill hp"></div></div>
+          <button class="attack" type="button">ATTACK</button>
+          <div class="loot hidden">
+            <p>Real-time drowsiness and distraction detection from a webcam, built in Python.</p>
+            <a href="https://github.com/VedantX-cod/Drowsiness-detector" target="_blank" rel="noopener">VIEW CODE</a>
+          </div>
+        </article>
+
+        <article class="enemy" data-hp="3">
+          <h3>SIGN LANGUAGE AI</h3>
+          <div class="track"><div class="fill hp"></div></div>
+          <button class="attack" type="button">ATTACK</button>
+          <div class="loot hidden">
+            <p>Recognizes hand gestures and converts them to text and speech.</p>
+            <a href="https://github.com/VedantX-cod/sign-language-recognition" target="_blank" rel="noopener">VIEW CODE</a>
+          </div>
+        </article>
+
+        <article class="enemy" data-hp="3">
+          <h3>HEART RATE MONITOR</h3>
+          <div class="track"><div class="fill hp"></div></div>
+          <button class="attack" type="button">ATTACK</button>
+          <div class="loot hidden">
+            <p>Contactless pulse measurement from webcam video using rPPG.</p>
+            <a href="https://github.com/VedantX-cod/rppg-heart-rate-monitor" target="_blank" rel="noopener">VIEW CODE</a>
+          </div>
+        </article>
+      </div>
+
+      <button id="next-btn-3" type="button" disabled>NEXT LEVEL</button>
+    </section>
+
+    <!-- LEVEL 3: ACHIEVEMENTS -->
+    <section id="level3" class="level locked">
+      <h2>LEVEL 3: ACHIEVEMENTS</h2>
+      <div class="dialog">
+        <p>Answer all 3 questions to open the vault. A wrong answer costs 10 HP.</p>
+        <p id="quiz-count">0 / 3 solved</p>
+      </div>
+
+      <div class="quizzes">
+        <div class="quiz">
+          <p>Q1. Which company issued my Generative AI virtual internship (PBEL)?</p>
+          <div class="opts">
+            <button class="opt" type="button">CISCO</button>
+            <button class="opt" type="button" data-correct="true">IBM</button>
+            <button class="opt" type="button">ORACLE</button>
+          </div>
+        </div>
+
+        <div class="quiz">
+          <p>Q2. Which database company gave me the RAG and AI Agents certificates?</p>
+          <div class="opts">
+            <button class="opt" type="button" data-correct="true">MONGODB</button>
+            <button class="opt" type="button">IBM</button>
+            <button class="opt" type="button">SNOWFLAKE</button>
+          </div>
+        </div>
+
+        <div class="quiz">
+          <p>Q3. Which Cisco course have I completed?</p>
+          <div class="opts">
+            <button class="opt" type="button">GO BASICS</button>
+            <button class="opt" type="button">RUST BASICS</button>
+            <button class="opt" type="button" data-correct="true">PYTHON ESSENTIALS</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="vault" class="dialog hidden">
+        <p>VAULT UNLOCKED</p>
+        <ul class="loot-list">
+          <li>IBM PBEL Virtual Internship, Generative AI (Sep 2025)</li>
+          <li>Cisco: C++ and Python Essentials</li>
+          <li>MongoDB: Basics, Vector Search, RAG, AI Agents, AI Data Strategy</li>
+          <li>Outskill AI workshops</li>
+          <li>Inter-college competition certificates</li>
+        </ul>
+      </div>
+
+      <button id="next-btn-4" type="button" disabled>FINAL BOSS</button>
+    </section>
+
+    <!-- LEVEL 4: FINAL BOSS -->
+    <section id="level4" class="level locked">
+      <h2>FINAL BOSS: CONTACT</h2>
+      <div class="dialog">
+        <p>The Gatekeeper guards my contact details. Hit it 10 times to get through.</p>
+      </div>
+
+      <div id="boss" class="boss">
+        <div class="boss-face" aria-hidden="true">
+          <span class="eye"></span><span class="eye"></span><span class="mouth"></span>
+        </div>
+        <div class="track boss-track"><div id="boss-hp" class="fill hp"></div></div>
+        <button id="boss-attack" class="attack" type="button">ATTACK</button>
+      </div>
+
+      <div id="contact" class="contact hidden">
+        <div class="dialog">
+          <p>YOU WIN!</p>
+          <p>Final score: <b id="final-score">0</b></p>
+        </div>
+
+        <div class="links">
+          <a href="mailto:Vedantsingh08166@gmail.com">EMAIL</a>
+          <a href="https://github.com/VedantX-cod" target="_blank" rel="noopener">GITHUB</a>
+          <a href="https://www.linkedin.com/in/vedant-singh-61a082358" target="_blank" rel="noopener">LINKEDIN</a>
+          <a href="https://leetcode.com/u/VedantX-cod/" target="_blank" rel="noopener">LEETCODE</a>
+        </div>
+
+        <div class="dialog form">
+          <label for="c-name">YOUR NAME</label>
+          <input id="c-name" type="text" autocomplete="name">
+          <label for="c-msg">MESSAGE</label>
+          <textarea id="c-msg" rows="4"></textarea>
+          <button id="send-btn" type="button">SEND MESSAGE</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
